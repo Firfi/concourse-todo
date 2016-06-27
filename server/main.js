@@ -1,10 +1,10 @@
 import Koa from 'koa'
+import proxy from 'koa-proxy'
 import convert from 'koa-convert'
 import webpack from 'webpack'
 import webpackConfig from '../build/webpack.config'
 import historyApiFallback from 'koa-connect-history-api-fallback'
 import serve from 'koa-static'
-import proxy from 'koa-proxy'
 import _debug from 'debug'
 import config from '../config'
 import webpackDevMiddleware from './middleware/webpack-dev'
@@ -25,6 +25,11 @@ if (config.proxy && config.proxy.enabled) {
 app.use(convert(historyApiFallback({
   verbose: false
 })))
+
+app.use(proxy({
+  host:  'http://localhost:17172', // proxy alicdn.com...
+  match: /^\/db\//        // ...just the /static folder
+}));
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
