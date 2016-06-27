@@ -9,8 +9,8 @@ Based on react-starter-kit. To run, first run Concourse test assignment Vagrant 
 After confirming that your development environment meets the specified [requirements](#requirements), you can follow these steps to get the project up and running:
 
 ```bash
-$ git clone https://github.com/davezuko/react-redux-starter-kit.git
-$ cd react-redux-starter-kit
+$ git clone https://github.com/Firfi/concourse-todo.git
+$ cd concourse-todo
 $ npm install                   # Install project dependencies
 $ npm start                     # Compile and launch
 ```
